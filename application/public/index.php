@@ -4,6 +4,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 require 'controllers/employee.php';
+require 'functions/functions.php';
 
 $app = new \Slim\App;
 
@@ -65,20 +66,5 @@ $app->get('/api/v1/searchs/salary', function (Request $request, Response $respon
     $response->getBody()->write($xml->asXML());
     return $response;
 });
-
-function array_to_xml($array, &$xml) {
-    foreach($array as $key => $value) {
-        if(is_array($value)) {
-            if(!is_numeric($key)){
-                $subnode = $xml->addChild("$key");
-                array_to_xml($value, $subnode);
-            } else {
-                array_to_xml($value, $xml);
-            }
-        } else {
-            $xml->addChild("$key","$value");
-        }
-    }
-}
 
 $app->run();
