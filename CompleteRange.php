@@ -1,10 +1,5 @@
 <?php 
 
-
-
-/**
-* 
-*/
 class CompleteRange
 {
 	
@@ -52,9 +47,8 @@ class CompleteRange
 **/
 
 /* Change the value for test */
-
-//$range_numbers= [1, 2, 4, 5];
-$range_numbers= [2, 4, 9];
+$range_numbers= [1, 2, 4, 5];
+// $range_numbers= [2, 4, 9];
 //$range_numbers= [55, 58, 60];
 
 $complete_range = new CompleteRange();
