@@ -48,5 +48,25 @@ class Employee
 			return $object;
     	}
 	}
+
+	public function getBySalary($min, $max)
+	{
+		$result = json_decode($this->employees_json, true);
+		$len = count($result);
+		$objects = Array();
+
+		$min = str_replace(',', '', $min);
+		$max = str_replace(',', '', $max);
+
+		for ($i=0; $i < $len; $i++) {
+			$salary = substr($result[$i]['salary'], 1);
+			$salary = str_replace(',', '', $salary);
+			if ($salary >= $min && $salary <= $max) {
+
+				array_push($objects, array( 'item' => $result[$i]));
+			}
+		}
+	    return $objects;
+	}
 }
 ?>

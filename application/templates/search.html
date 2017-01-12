@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+</head>
+<body>
+	<h2>Busqueda de empleados</h2>
+	<form action="/api/v1/searchs/employee" method="GET">
+		<label for="email">Ingrese un email</label>
+		<input type="text" name="email" required>
+		<button>Buscar</button>
+	</form>
+	<hr>
+	<h2>Lista de empleados:</h2>
+	<table border="1">
+		<thead>
+			<th>name</th>
+			<th>email</th>
+			<th>position</th>
+			<th>salary</th>
+			<th>detail</th>
+		</thead>
+		<tbody>
+				<tr>
+		        <td>{{ employee.name }}</td>
+		        <td>{{ employee.email }}</td>
+		        <td>{{ employee.position }}</td>
+		        <td>{{ employee.salary }}</td>
+		        <td><a href="/api/v1/employees/{{ employee.id }}">detail</a></td>
+				</tr>
+		</tbody>
+	</table>
+	<a href="/api/v1/employees">Limpiar resultado</a>
+</body>
+</html>
